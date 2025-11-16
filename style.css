@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Centraliza o tabuleiro na view port */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+    overflow: hidden; /* Esconde barras de rolagem que podem aparecer */
+}
+
+.game-board {
+    width: 70%;
+    max-width: 1000px;
+    height: 500px;
+    border-bottom: 15px solid rgb(35, 160, 35);
+    position: relative; /* CRUCIAL: Este é o ponto de referência para todos os elementos "absolute" */
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+/* --- Elementos do Jogo --- */
+
+.game-logo {
+    max-width: 80%; /* Garante que a logo não ultrapasse a largura do popup */
+    height: auto; 
+    margin-bottom: 15px; /* Adiciona um espaço abaixo da logo e acima do texto */
+    /* Animação opcional para a logo brilhar */
+    animation: pulse 1.5s infinite alternate; 
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    right: -80px; /* Começa fora da tela */
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    /* Esta classe adiciona a animação ao Mário */
+    animation: jump 500ms ease-out forwards; /* Adicionei 'forwards' para garantir */
+}
+
+.clouds {
+    position: absolute;
+    width: 500px;
+    animation: clouds-animation 20s infinite linear;
+    right: 0;
+    top: 0; /* Alinha as nuvens ao topo do game-board */
+}
+
+.score-board {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-family: monospace;
+    color: #000; /* Cor preta para melhor visibilidade no céu claro */
+    text-shadow: 1px 1px #fff;
+    z-index: 5;
+}
+
+/* --- Overlays (Telas de Início e Game Over) --- */
+
+.overlay {
+    position: absolute; /* Ocupa 100% do .game-board pai */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 10; 
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.popup {
+    background: transparent;
+    color:  #fff;;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #d9534f;
+    text-shadow: 2px 2px #fff;
+}
+
+#startButton, #restartButton {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#startButton { background-color: #5cb85c; }
+#restartButton { background-color: #d9534f; }
+
+/* --- Animações --- */
+
+@keyframes pipe-animation {
+    from { right: -80px; }
+    to { right: 100%; }
+}
+
+@keyframes jump {
+    0% { bottom: 0; }
+    40% { bottom: 180px; }
+    60% { bottom: 180px; }
+    100% { bottom: 0; }
+}
+
+@keyframes clouds-animation {
+    from{ right: 0; }
+    to { right: 100%; }
+}
+
+@keyframes pulse {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.8; transform: scale(1.05); }
+}

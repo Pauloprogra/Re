@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js" defer></script>
+
+	<title>Mario Jump</title>
+</head>
+<body>
+	<audio id="background-music" loop>
+    	<source src="mario-theme.mp3" type="audio/mpeg">
+    		Seu navegador não suporta a tag de áudio.
+		</audio>
+
+	<div class="game-board" id="game-board">
+		
+		<!-- Overlay/Menu Inicial -->
+		<div id="start-screen" class="overlay show">
+            <div class="popup">
+                <img src="mario-logo.png" alt="Super Mario Logo" class="game-logo">
+                <p>Pressione qualquer tecla ou clique em Iniciar para pular!</p>
+                <button id="startButton">Iniciar Jogo</button>
+            </div>
+        </div>
+
+		<!-- Overlay/Tela de Game Over -->
+		<div id="game-over-screen" class="overlay">
+            <div class="popup">
+                <h1>Game Over!</h1>
+                <p>Sua pontuação final foi: <span id="final-score">0</span></p>
+                <button id="restartButton">Reiniciar Jogo</button>
+            </div>
+        </div>
+		
+        <!-- Placar de Pontuação -->
+        <div class="score-board">
+            Score: <span id="score">0</span>
+        </div>
+
+		<img src="mario.GIF" class="mario" id="mario">
+		<img src="pipe.png" class="pipe" id="pipe">
+		<img src="clouds.png" class="clouds">
+
+	</div>
+
+</body>
+</html>
