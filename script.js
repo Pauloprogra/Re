@@ -40,7 +40,7 @@ const startGame = () => {
     startScreen.classList.remove('show');
     gameOverScreen.classList.remove('show');
     
-    mario.src = 'mario.gif';
+    mario.src = 'mario.GIF';
     mario.style.width = '150px';
     mario.style.marginLeft = '0px';
     score = 0;
@@ -102,4 +102,5 @@ document.addEventListener('click', (e) => {
          jump();
     }
 });
+
 
